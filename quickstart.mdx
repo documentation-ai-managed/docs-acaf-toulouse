@@ -1,0 +1,139 @@
+---
+title: Quickstart Guide
+description: Get up and running with Acaf-toulouse by setting up your account and creating your first documentation space in under 5 minutes.
+---
+
+## Prerequisites
+
+<Callout kind="info" title="Before You Begin">
+You need a web browser (Chrome, Firefox, or Safari recommended) and an email address for account verification. No software installation required—Acaf-toulouse runs entirely in the browser.
+</Callout>
+
+## Sign Up and Log In
+
+Start by creating your Acaf-toulouse account. Visit `https://app.acaf-toulouse.com` and follow these steps.
+
+<Tabs>
+  <Tab title="Email Signup" icon="mail">
+    Enter your email and create a password. Verify your email via the confirmation link sent to your inbox.
+  </Tab>
+  <Tab title="Google Login" icon="google">
+    Click "Sign in with Google" for instant access using your Google account.
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+Save your credentials securely. Use a password manager for production accounts.
+</Callout>
+
+## Create Your First Documentation Project
+
+Once logged in, you land on the dashboard. Create a new project to organize your docs.
+
+<Steps>
+  <Step title="New Project" icon="plus">
+    Click the **New Project** button in the top-right corner.
+
+    Fill in the details:
+
+    | Field       | Example Value              |
+    |-------------|----------------------------|
+    | Name        | My Project Docs            |
+    | Description | Documentation for my app   |
+    | Visibility  | Public (or Private)        |
+  </Step>
+
+  <Step title="Confirm Creation" icon="check-circle">
+    Review settings and click **Create**. Your project space opens automatically.
+  </Step>
+</Steps>
+
+## Interface Tour
+
+The Acaf-toulouse interface includes these key areas:
+
+<Columns cols={3}>
+  <Card title="Sidebar" icon="menu">
+    Navigate projects, docs, and settings.
+  </Card>
+  <Card title="Editor" icon="edit-3">
+    Write MDX content with live preview.
+  </Card>
+  <Card title="Preview" icon="eye">
+    Real-time rendering of your docs.
+  </Card>
+</Columns>
+
+<Expandable title="Advanced Navigation" default-open="false">
+
+Use the search bar (`Ctrl+K`) for quick access. Keyboard shortcuts:
+
+- `Ctrl+S`: Save document
+- `Ctrl+/`: Toggle comments
+- `Esc`: Focus editor
+
+</Expandable>
+
+## Add Your First Document
+
+Create a document inside your project.
+
+<Steps>
+  <Step title="New Document" icon="file-plus">
+    In your project, click **New Document**. Name it `introduction.mdx`.
+  </Step>
+
+  <Step title="Add Content" icon="edit">
+    Paste this starter MDX:
+
+````mdx
+---
+title: Introduction
+description: Welcome to my project.
+---
+
+## Hello World
+
+Your first Acaf-toulouse document!
+````
+
+  </Step>
+
+  <Step title="Publish" icon="globe">
+    Click **Publish** to make it live. Share the generated URL with your team.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="MDX,Bash">
+```mdx
+# Example Page Structure
+<Callout kind="success">Document published!</Callout>
+```
+```bash
+# Preview locally (CLI optional)
+npx acaf-toulouse preview introduction.mdx
+```
+</CodeGroup>
+
+## Next Steps
+
+Congratulations—you've set up Acaf-toulouse! Explore more:
+
+<Columns cols={2}>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your projects with advanced auth.
+  </Card>
+  <Card title="Customization" icon="settings" href="/configuration">
+    Configure themes and integrations.
+  </Card>
+  <Card title="API Reference" icon="code" href="/api">
+    Automate with our REST API.
+  </Card>
+  <Card title="Help Center" icon="help-circle" href="/help-center">
+    FAQs and support resources.
+  </Card>
+</Columns>
+
+<Callout kind="success">
+Your documentation space is ready. Customize pages and invite collaborators to build your knowledge base.
+</Callout>

@@ -1,0 +1,144 @@
+---
+title: Changelog
+description: Stay informed about the latest updates, new features, and improvements in Acaf-toulouse.
+---
+
+## Overview
+
+Acaf-toulouse releases updates regularly to introduce new features, enhance performance, and fix issues. You can find all changes here, organized by version. Check this page frequently or subscribe to notifications to stay current.
+
+<Callout kind="tip">
+  Enable notifications in your account settings to get email alerts for new releases.
+</Callout>
+
+## Recent Updates
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "bugfix"]}>
+
+## New Features
+
+- Added advanced search with full-text indexing across all project documents
+- Introduced real-time collaboration for shared documentation spaces
+- New export options including PDF and Markdown bundles
+
+## Improvements
+
+- Enhanced editor performance by `>30%` for large documents
+- Improved mobile responsiveness in the documentation viewer
+
+## Bug Fixes
+
+- Fixed sync issues when editing documents offline
+- Resolved rendering glitches with nested lists and tables
+- Patched security vulnerability in file upload handling (CVE-2024-XXXX)
+
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Integrated version history with diff viewer for document changes
+- Added custom themes and branding options for documentation spaces
+- Support for embedding interactive widgets like charts and forms
+
+## Improvements
+
+- Optimized database queries reducing load times by `50%`
+- Better keyboard shortcuts for power users in the editor
+
+## Bug Fixes
+
+- Corrected authentication token refresh logic
+- Fixed drag-and-drop reordering in project navigation
+
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+
+## Breaking Changes
+
+- Removed legacy API endpoints; migrate to v2 endpoints at `https://api.example.com/v2`
+- Updated configuration format from JSON to YAML for better readability
+
+## New Features
+
+- Core documentation management with project organization
+- User authentication and role-based access control
+- Basic dashboard for overview of your spaces
+
+## Improvements
+
+- Initial setup wizard for quick onboarding
+
+</Update>
+
+## Quick Upgrade Guide
+
+Follow these steps to upgrade Acaf-toulouse to the latest version.
+
+<Steps>
+  <Step title="Backup Your Data" icon="database">
+
+    Create a full backup before proceeding.
+
+````bash
+# Example backup command
+pg_dump acaf_toulouse > backup_$(date +%Y%m%d).sql
+````
+
+  </Step>
+  <Step title="Update Package" icon="download">
+
+    <Tabs>
+      <Tab title="npm" icon="package">
+
+````bash
+npm install acaf-toulouse@latest
+````
+
+      </Tab>
+      <Tab title="Docker" icon="docker">
+
+````bash
+docker pull acaftoulouse/app:latest
+docker-compose up -d
+````
+
+      </Tab>
+    </Tabs>
+
+  </Step>
+  <Step title="Run Migrations" icon="database">
+
+    Execute database migrations.
+
+````bash
+npm run migrate
+````
+
+  </Step>
+  <Step title="Verify Installation" icon="check-circle">
+
+    Check the dashboard at `https://dashboard.example.com` and test key features.
+
+  </Step>
+</Steps>
+
+## Next Steps
+
+<Columns cols={3}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Get started with your first documentation space.
+  </Card>
+  <Card title="Authentication" icon="shield" href="/authentication">
+    Secure your projects with proper auth setup.
+  </Card>
+  <Card title="Customization" icon="settings" href="/configuration">
+    Tailor Acaf-toulouse to your needs.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  For detailed migration guides on breaking changes, see the full release notes in each version's GitHub tag.
+</Callout>

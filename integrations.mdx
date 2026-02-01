@@ -1,0 +1,137 @@
+---
+title: Integrations and Extensions
+description: Learn how to connect Acaf-toulouse with external tools to enhance your documentation ecosystem.
+---
+
+## Overview
+
+Acaf-toulouse supports seamless integrations with external services to automate workflows, sync content, and extend functionality. Use the REST API for custom scripts, set up webhooks for real-time notifications, connect to GitHub for repo syncing, and embed content from third-party sources.
+
+<Callout kind="tip">
+Review your Acaf-toulouse plan limits for API calls and webhook endpoints.
+</Callout>
+
+## API Access for Custom Integrations
+
+Access Acaf-toulouse data programmatically using the REST API at `https://api.example.com/v1`. Authenticate requests with your API key.
+
+<ParamField header="Authorization" param-type="string" required="true">
+`Bearer {YOUR_API_KEY}`
+</ParamField>
+
+<ParamField query="project" param-type="string" required="false">
+Project identifier for scoped access.
+</ParamField>
+
+Fetch documentation pages across languages:
+
+<CodeGroup tabs="JavaScript,Python,cURL">
+````javascript
+const response = await fetch('https://api.example.com/v1/docs?project=acaf-toulouse&lang=en', {
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+});
+const docs = await response.json();
+console.log(docs);
+````
+````python
+import requests
+
+response = requests.get(
+  'https://api.example.com/v1/docs',
+  params={'project': 'acaf-toulouse', 'lang': 'en'},
+  headers={'Authorization': 'Bearer YOUR_API_KEY'}
+)
+docs = response.json()
+print(docs)
+````
+````bash
+curl "https://api.example.com/v1/docs?project=acaf-toulouse&lang=en" \
+  -H "Authorization: Bearer YOUR_API_KEY"
+````
+</CodeGroup>
+
+## Webhook Setup for Notifications
+
+Configure webhooks to receive events like page updates or new comments.
+
+<Steps>
+<Step title="Create Webhook" icon="settings">
+Navigate to Settings > Integrations > Webhooks. Click "New Webhook".
+</Step>
+
+<Step title="Configure Endpoint" icon="link">
+Enter your endpoint URL, such as `https://your-webhook-url.com/webhook`.
+Select events: `page.updated`, `comment.created`.
+</Step>
+
+<Step title="Test and Save" icon="play">
+Send a test event. Verify receipt then save.
+</Step>
+</Steps>
+
+<Callout kind="alert">
+Secure your webhook endpoint with HTTPS and validate payloads using HMAC signatures.
+</Callout>
+
+## Third-Party Connections
+
+Connect Acaf-toulouse to popular services for enhanced workflows.
+
+<Tabs>
+<Tab title="GitHub" icon="github">
+Sync documentation with GitHub repositories.
+
+1. Go to Integrations > GitHub.
+2. Authorize Acaf-toulouse.
+3. Select repo and branch for auto-publishing.
+
+````markdown
+```yaml
+# .github/workflows/docs.yml
+name: Deploy Docs
+on: push
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Acaf-toulouse
+        run: curl -X POST https://api.example.com/v1/deploy \
+          -H "Authorization: Bearer ${{ secrets.ACAF_API_KEY }}" \
+          -d '{"repo": "your/repo", "branch": "main"}'
+```
+````
+</Tab>
+
+<Tab title="Slack" icon="message-circle">
+Send notifications to Slack channels on events.
+
+Install the Acaf-toulouse Slack app and select channels for `page.published` events.
+</Tab>
+</Tabs>
+
+## Embedding External Content
+
+Embed iframes or dynamic content from external sources in your docs.
+
+<Expandable title="Advanced Embedding Options" default-open="false">
+Use `<Iframe>` components or raw HTML for custom embeds.
+
+```html
+<iframe src="https://docs.example.com/embed/chart" width="100%" height="400"></iframe>
+```
+
+Ensure embeds comply with CSP settings in project config.
+</Expandable>
+
+<Columns cols={2}>
+<Card title="API Reference" icon="code" href="/authentication">
+Deep dive into endpoints.
+</Card>
+
+<Card title="Changelog" icon="git-commit" href="/changelog">
+Latest integration updates.
+</Card>
+</Columns>
