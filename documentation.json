@@ -1,6 +1,6 @@
 {
   "name": "Acaf-toulouse",
-  "initialRoute": "introduction",
+  "initialRoute": "integrations",
   "colors": {
     "light": {
       "brand": "#3B82F6"
@@ -50,5 +50,13 @@
         ]
       }
     ]
+  },
+  "navbar": {
+    "actions": {
+      "primary": {
+        "title": "Test",
+        "link": ""
+      }
+    }
   }
 }
