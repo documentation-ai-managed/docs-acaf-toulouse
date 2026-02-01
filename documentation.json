@@ -58,5 +58,8 @@
         "link": ""
       }
     }
+  },
+  "ai": {
+    "ai-assistant:enabled": false
   }
 }
